@@ -42,7 +42,7 @@ get_ave_exp <- function(i, myseurat, samples,myident) {
   SeuratObject<-suppressWarnings(
     CreateSeuratObject(count=sample,meta.data = meta.data))
   SeuratObject<-NormalizeData(SeuratObject,verbose = FALSE)
-  ave<-AverageExpression(SeuratObject,group.by = myident,return.seurat = T)[["RNA"]]@data
+  ave<-AggregateExpression(SeuratObject,group.by = myident,return.seurat = T)[["RNA"]]
   return(ave)
 }
 
